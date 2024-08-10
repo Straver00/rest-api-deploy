@@ -8,26 +8,27 @@ const { validateMovie, validatePartialMovie } = require('./schemas/movies')
 const app = express()
 
 app.use(express.json())
-app.use(cors({
-  origin: (origin, callback) => {
-    const ACCEPTED_ORIGINS = [
-      'http://localhost:8080',
-      'http://localhost:3000',
-      'https://movies.com',
-      'https://straver.dev'
-    ]
+app.use(cors())
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     const ACCEPTED_ORIGINS = [
+//       'http://localhost:8080',
+//       'http://localhost:3000',
+//       'https://movies.com',
+//       'https://straver.dev'
+//     ]
 
-    if (ACCEPTED_ORIGINS.includes(origin)) {
-      return callback(null, true)
-    }
+//     if (ACCEPTED_ORIGINS.includes(origin)) {
+//       return callback(null, true)
+//     }
 
-    if (!origin) {
-      return callback(null, true)
-    }
+//     if (!origin) {
+//       return callback(null, true)
+//     }
 
-    return callback(new Error('Not allowed by CORS'))
-  }
-}))
+//     return callback(new Error('Not allowed by CORS'))
+//   }
+// }))
 app.disable('x-powered-by')
 
 app.get('/movies', (req, res) => {
