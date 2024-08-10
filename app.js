@@ -49,7 +49,7 @@ app.get('/movies/:id', (req, res) => {
   res.status(404).json({ error: 'Movie not found' })
 })
 
-app.post('/movies/:id', (req, res) => {
+app.post('/movies', (req, res) => {
   const result = validateMovie(req.body)
 
   if (result.error) {
