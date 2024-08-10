@@ -32,7 +32,6 @@ app.use(cors())
 app.disable('x-powered-by')
 
 app.get('/movies', (req, res) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:8080')
   const { genre } = req.query
   if (genre) {
     const filteredMovies = movies.filter(
